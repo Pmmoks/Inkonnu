@@ -1,4 +1,4 @@
-# Odds-on
+# Inkonnu
 
 ##Getting Started
 
