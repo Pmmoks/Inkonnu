@@ -1,0 +1,42 @@
+@import '../../../styles/theme.scss';
+@import '../../../styles/mixins.scss';
+
+.menu {
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  width: 0;
+	position: fixed;
+  z-index: 9;
+  background-color: $menu-background-colour;
+  @include transition(0.725s ease-in-out);
+}
+
+.menu.open {
+  width: 100%;
+  @media only screen and (min-width: 600px) {
+    width: 50%;
+  }
+  opacity: 0.9;
+  transition-delay: 0.1s;
+}
+
+.circularMenu {
+  top: 0px;
+  right: 0px;
+  margin: 20px;
+  height: $menu-icon-diameter;
+  width: $menu-icon-diameter;
+  border: solid $menu-background-colour 2px;
+	position: fixed;
+  z-index: 9;
+  background-color: $menu-background-colour;
+  border-radius: 50%;
+  @include transform(scale(0));
+  transition-duration: 0.725s;
+}
+
+.circularMenu.open {
+  opacity: 0.8;
+  transition-delay: 0.1s;
+}

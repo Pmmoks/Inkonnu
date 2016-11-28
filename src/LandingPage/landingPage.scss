@@ -1,0 +1,51 @@
+@import '../../styles/theme.scss';
+
+$landing-backdrop-color: rgba(0, 0, 0, 0.4);
+
+.landingBackdrop {
+  position: fixed;
+  background-color: $landing-backdrop-color;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.landingPage {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 70%;
+  width: 65%;
+  margin:auto;
+  text-align: center;
+  vertical-align: center;
+  padding: 40px;
+  background-color: $landing-background-color;
+  border-radius: 5px;
+  box-shadow: 0 0 40px -8px rgba(0, 0, 0, 0.4);
+}
+
+.landingPage > h1 {
+  font-family: avenir;
+  font-size: 2em;
+}
+
+.landingButton {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 50px;
+  max-width: 100px;
+  font-family: avenir;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: $landing-button-colour;
+  padding: 15px 30px;
+}
