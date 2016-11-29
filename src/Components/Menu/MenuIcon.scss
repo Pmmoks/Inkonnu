@@ -9,24 +9,32 @@
   height: $menu-icon-diameter;
   position: fixed;
   z-index: 10;
-  margin: 20px;
-  border: solid $menu-icon-color-closed 2px;
+  margin: 2em;
+  border: solid $menu-icon-color-closed 1px;
   border-radius: 50%;
-  cursor: pointer;
   @include transition(.625s ease-in-out);
-//  animation: border-pulse 6s infinite;
+  -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.sticky {
+  transform: translate3d(-1em, -1.3em, 0);
+  transition-delay: 0s;
+  -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.navicon:focus {
+  outline: none;
 }
 
 .navicon span {
   display: block;
   position: absolute;;
   margin: 0 auto;
-  height: 2px;
+  height: 1px;
   width: 50%;
   border-radius: 25px;
   opacity: 1;
   left: 25%;
-  animation: pulse 6s infinite;
 }
 
 .navicon span:nth-child(1), .navicon span:nth-child(2), .navicon span:nth-child(5) {
@@ -59,63 +67,32 @@
   transition-delay: .325s;
 }
 
-.navicon.open {
-  border-color: $menu-icon-color-open;
+.navicon.showMenu {
+  border-color: $menu-icon-color-showMenu;
 }
 
-.navicon.open span:nth-child(1), .navicon.open span:nth-child(2) {
+.navicon.showMenu span:nth-child(1), .navicon.showMenu span:nth-child(2) {
   top: 20px;
   opacity: 0;
   background: $menu-icon-color-mid;
   transition-delay: 0s;
 }
 
-.navicon.open span:nth-child(3) {
-  background: $menu-icon-color-open;
+.navicon.showMenu span:nth-child(3) {
+  background: $menu-icon-color-showMenu;
   @include transform(rotate(45deg));
   transition-delay: .35s;
 }
 
-.navicon.open span:nth-child(4) {
-  background: $menu-icon-color-open;
+.navicon.showMenu span:nth-child(4) {
+  background: $menu-icon-color-showMenu;
   @include transform(rotate(-45deg));
   transition-delay: .35s;
 }
 
-.navicon.open span:nth-child(5) {
+.navicon.showMenu span:nth-child(5) {
   top: 20px;
   opacity: 0;
   background: $menu-icon-color-mid;
   transition-delay: 0s;
 }
-/*
-@keyframes pulse {
-  0% {
-    background-color: $menu-pulse-color-1;
-  }
-  33% {
-    background-color: $menu-pulse-color-2;
-  }
-  66% {
-    background-color: $menu-pulse-color-3;
-  }
-  100% {
-    background-color: $menu-pulse-color-4;
-  }
-}
-
-@keyframes border-pulse {
-  0% {
-    border-color: $menu-pulse-color-1;
-  }
-  33% {
-    border-color: $menu-pulse-color-2;
-  }
-  66% {
-    border-color: $menu-pulse-color-3;
-  }
-  100% {
-    border-color: $menu-pulse-color-4;
-  }
-}
-*/

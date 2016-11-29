@@ -1,8 +1,12 @@
 import React from 'react'
 import styles from './MenuIcon.scss'
 
-const MenuIcon = ({ open, onClick }) => (
-  <div className={`${styles.navicon} ${open ? styles.open : ''}`} onClick={onClick}>
+const MenuIcon = ({ showMenu, onClick, handleScroll }) => (
+  <div
+    tabIndex="0"
+    className={`${styles.navicon} ${showMenu ? styles.showMenu : ''} ${handleScroll ? styles.sticky : ''}`}
+    onClick={onClick}
+  >
     <span></span>
     <span></span>
     <span></span>

@@ -2,41 +2,42 @@
 @import '../../../styles/mixins.scss';
 
 .menu {
+  margin: 0;
+  padding: 0;
   top: 0px;
   right: 0px;
   height: 100%;
   width: 0;
 	position: fixed;
   z-index: 9;
+  border-radius: 10px 0px 0px 10px;
   background-color: $menu-background-colour;
   @include transition(0.725s ease-in-out);
+  -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
 }
 
-.menu.open {
-  width: 100%;
+.menu.showMenu {
+  width: 80%;
   @media only screen and (min-width: 600px) {
-    width: 50%;
+    width: 40%;
   }
-  opacity: 0.9;
+  opacity: 0.95;
   transition-delay: 0.1s;
+  -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+  box-shadow: -5px 0 20px 0px rgba(0, 0, 0, 0.5);
 }
 
-.circularMenu {
-  top: 0px;
-  right: 0px;
-  margin: 20px;
-  height: $menu-icon-diameter;
-  width: $menu-icon-diameter;
-  border: solid $menu-background-colour 2px;
-	position: fixed;
-  z-index: 9;
-  background-color: $menu-background-colour;
-  border-radius: 50%;
-  @include transform(scale(0));
-  transition-duration: 0.725s;
+ul > li {
+  display: block;
+  text-align: center;
+  padding: 24px 0;
 }
 
-.circularMenu.open {
-  opacity: 0.8;
-  transition-delay: 0.1s;
+ul > li:first-child {
+    margin-top: 128px;
+}
+
+ul > li > a {
+  color: $menu-text-color;
+  font-weight: 900;
 }
