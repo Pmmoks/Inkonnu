@@ -1,42 +1,71 @@
 import React from 'react'
-import Link from './Components/Link/Link.jsx'
+import { MdModeEdit, MdImportContacts, MdInfo } from 'react-icons/lib/md'
+// import Link from './Components/Link/Link.jsx'
 import Menu from './Components/Menu/Menu.jsx'
+import MenuItem from './Components/Menu/MenuItem.jsx'
+import StickyHeader from './Components/StickyHeader/StickyHeader.jsx'
 
 import SiteRoutes from './Routes/Routes.js'
-import styles from './menuBlur.scss'
+import styles from '../styles/common.scss'
 
 export default class App extends React.Component {
   constructor() {
     super()
 
-    this.state = { open: false }
+    this.state = {
+      showMenu: false,
+      sticky: false,
+    }
     this.toggleMenu = this.toggleMenu.bind(this)
+    this.closeMenuOnBlur = this.closeMenuOnBlur.bind(this)
+    this.handleScroll=this.handleScroll.bind(this)
   }
 
-  toggleMenu(e) {
-    e.preventDefault()
-    this.setState({ open: !this.state.open })
+  componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll() {
+    if(window.scrollY > 100) {
+      this.setState({sticky: true})
+    } else {
+      this.setState({sticky: false})
+    }
+  }
+
+  toggleMenu() {
+    this.setState({ showMenu: !this.state.showMenu })
+  }
+
+  closeMenuOnBlur() {
+    if (!this.state.showMenu) {
+      return
+    }
+  //  this.setState({ showMenu: false })
   }
 
   render() {
     return (
-      <div className={`${this.state.open ? styles.open : ''}`}>
-        <Menu open={this.state.open} onClick={this.toggleMenu}/>
-        <h1>Inkonnu</h1>
-        <p>By Jackups</p>
-        <Link path={SiteRoutes.landing}>
-          Landing Page Link
-        </Link>
-        <br />
-        <Link path={SiteRoutes.sample}>
-          Sample Link
-        </Link>
-        <br />
-        <Link path={SiteRoutes.example}>
-          Example Link
-        </Link>
-        <br />
-        {this.props.children}
+      <div>
+        <Menu showMenu={this.state.showMenu} onClick={this.toggleMenu} handleScroll={this.state.sticky}>
+          <MenuItem path={SiteRoutes.write} onClick={this.toggleMenu}>
+            <MdModeEdit className={styles.menuIcon} />Write
+          </MenuItem>
+          <MenuItem path={SiteRoutes.read} onClick={this.toggleMenu}>
+            <MdImportContacts className={styles.menuIcon} />Read
+          </MenuItem>
+          <MenuItem path={SiteRoutes.about} onClick={this.toggleMenu}>
+            <MdInfo className={styles.menuIcon} />About
+          </MenuItem>
+        </Menu>
+        <StickyHeader handleScroll={this.state.sticky}><h1>Inkonnu</h1></StickyHeader>
+        <div className={`${this.state.showMenu ? styles.showMenu : 'styles.app'}`}>
+          {this.props.children}
+        </div>
       </div>
     )
   }

@@ -1,7 +1,9 @@
 const SiteRoutes = {
   landing: '/',
-  sample: '/sample',
-  example: '/example',
+  read: '/read',
+  write: '/write',
+  about: '/about',
+  container: '/container',
 }
 
 export default SiteRoutes

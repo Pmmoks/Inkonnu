@@ -1,6 +1,6 @@
 {
   "name": "inkonnu",
-  "description": "inkonnu game web app",
+  "description": "inkonnu web app",
   "author": "Pmmoks",
   "version": "0.0.0",
   "main": "./app.jsx",

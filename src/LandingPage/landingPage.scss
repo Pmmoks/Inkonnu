@@ -1,4 +1,5 @@
 @import '../../styles/theme.scss';
+@import '../../styles/fonts.scss';
 
 $landing-backdrop-color: rgba(0, 0, 0, 0.4);
 
@@ -17,19 +18,22 @@ $landing-backdrop-color: rgba(0, 0, 0, 0.4);
   right: 0;
   bottom: 0;
   left: 0;
+  z-index:10;
   height: 70%;
-  width: 65%;
+  max-height: 600px;;
+  width: 75%;
+  max-width: 600px;
   margin:auto;
   text-align: center;
-  vertical-align: center;
+  vertical-align: middle;
   padding: 40px;
   background-color: $landing-background-color;
-  border-radius: 5px;
+  border-radius: 7px;
   box-shadow: 0 0 40px -8px rgba(0, 0, 0, 0.4);
 }
 
 .landingPage > h1 {
-  font-family: avenir;
+  font-family: $body-font-light;
   font-size: 2em;
 }
 
@@ -40,12 +44,12 @@ $landing-backdrop-color: rgba(0, 0, 0, 0.4);
   margin: 0 auto;
   bottom: 50px;
   max-width: 100px;
-  font-family: avenir;
+  font-family: $body-font-light;
   font-weight: bold;
-  font-size: 1.5em;
-  color: white;
+  font-size: 0.7em;
+  color: $landing-button-font-colour;
   text-decoration: none;
-  border-radius: 15px;
-  background-color: $landing-button-colour;
+  border-radius: 10em;
+  border: solid $landing-button-border-colour 1px;
   padding: 15px 30px;
 }

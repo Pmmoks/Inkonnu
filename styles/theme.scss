@@ -1,19 +1,23 @@
 @import './colors.scss';
 
+//Header
+$sticky-header-color: $light-grey-2;
+
+//Body
+$body-font-colour-1: $mid-grey-1;
+
 //Cards
 $card-background-color: $light-grey-1;
 
 //Landing Page
 $landing-background-color: $light-grey-1;
-$landing-button-colour: #0B2669;
+$landing-button-border-colour: #373a47;
+$landing-button-font-colour: #373a47;
 
 //Menu Icon
-$menu-background-colour: #232323;
-//$menu-pulse-color-1: #880000;
-//$menu-pulse-color-2: #408800;
-//$menu-pulse-color-3: #400088;
-//$menu-pulse-color-4: #880000;
+$menu-background-colour: $midnight-blue-1;
+$menu-text-color: $yellow-green-1;
 $menu-icon-diameter: 42px;
-$menu-icon-color-closed: #373a47;
-$menu-icon-color-open: #fffce1;
-$menu-icon-color-mid: #9b9b94;
+$menu-icon-color-closed: $midnight-blue-1;
+$menu-icon-color-showMenu: $yellow-green-1;
+$menu-icon-color-mid: #668080;
