@@ -1,0 +1,26 @@
+@import '../../../styles/fonts.scss';
+@import '../../../styles/mixins.scss';
+@import '../../../styles/theme.scss';
+
+.header {
+  font-family: $body-font-light;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  display: block;
+  position: fixed;
+  padding: 2.3em 2em;
+  background-color: white;
+  opacity: .95;
+  @include transition(0.625s ease-in-out);
+  -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
+
+.sticky {
+  background-color: $sticky-header-color;
+  opacity: .98;
+  padding: 1em 3em;
+  @include transition(0.625s ease-in-out);
+  -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+}
