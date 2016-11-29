@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link as RouterLink } from 'react-router'
+import styles from './Link.scss'
 
 const Link = ({ children, onClick, href, path, target, className }) => {
   let element = null
