@@ -1,26 +1,30 @@
 @import '../../../styles/fonts.scss';
 @import '../../../styles/mixins.scss';
 @import '../../../styles/theme.scss';
+@import '../../../styles/colors.scss';
 
 .header {
-  font-family: $body-font-light;
+  font-family: $permanent-marker;
+  color: $dark-blue-1;
   top: 0;
   left: 0;
   margin: 0;
   width: 100%;
   display: block;
   position: fixed;
-  padding: 2.3em 2em;
+  padding: 2.3em 1.8em;
   background-color: white;
   opacity: .95;
-  @include transition(0.625s ease-in-out);
-  -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+  @include transition(.8s ease-in-out);
+   & h1 {
+     padding-left: 2px;
+   }
 }
 
 .sticky {
   background-color: $sticky-header-color;
   opacity: .98;
-  padding: 1em 3em;
-  @include transition(0.625s ease-in-out);
-  -webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+  padding: .1em 3em;
+  box-shadow: 0 -5px 25px 0px rgba(0, 0, 0, 0.5);
+  @include transition(.8s ease-in-out);
 }

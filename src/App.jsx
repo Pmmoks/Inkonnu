@@ -8,6 +8,7 @@ import StickyHeader from './Components/StickyHeader/StickyHeader.jsx'
 import SiteRoutes from './Routes/Routes.js'
 import styles from '../styles/common.scss'
 
+const stickyScrollLimit = 25
 export default class App extends React.Component {
   constructor() {
     super()
@@ -18,22 +19,22 @@ export default class App extends React.Component {
     }
     this.toggleMenu = this.toggleMenu.bind(this)
     this.closeMenuOnBlur = this.closeMenuOnBlur.bind(this)
-    this.handleScroll=this.handleScroll.bind(this)
+    this.handleScroll = this.handleScroll.bind(this)
   }
 
   componentDidMount() {
-      window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount() {
-      window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('scroll', this.handleScroll)
   }
 
   handleScroll() {
-    if(window.scrollY > 100) {
-      this.setState({sticky: true})
+    if (window.scrollY > stickyScrollLimit) {
+      this.setState({ sticky: true })
     } else {
-      this.setState({sticky: false})
+      this.setState({ sticky: false })
     }
   }
 
@@ -53,20 +54,27 @@ export default class App extends React.Component {
       <div>
         <Menu showMenu={this.state.showMenu} onClick={this.toggleMenu} handleScroll={this.state.sticky}>
           <MenuItem path={SiteRoutes.write} onClick={this.toggleMenu}>
-            <MdModeEdit className={styles.menuIcon} />Write
+            <MdModeEdit className={styles.menuIcon} />SCRIBBLE
           </MenuItem>
           <MenuItem path={SiteRoutes.read} onClick={this.toggleMenu}>
-            <MdImportContacts className={styles.menuIcon} />Read
+            <MdImportContacts className={styles.menuIcon} />STORY BOARD
           </MenuItem>
           <MenuItem path={SiteRoutes.about} onClick={this.toggleMenu}>
-            <MdInfo className={styles.menuIcon} />About
+            <MdInfo className={styles.menuIcon} />ABOUT
           </MenuItem>
         </Menu>
-        <StickyHeader handleScroll={this.state.sticky}><h1>Inkonnu</h1></StickyHeader>
-        <div className={`${this.state.showMenu ? styles.showMenu : 'styles.app'}`}>
+        <div className={`${this.state.showMenu ? styles.showMenu : ''}`}>
+          <StickyHeader handleScroll={this.state.sticky}><h1>Inkonnu</h1></StickyHeader>
           {this.props.children}
         </div>
       </div>
     )
   }
+}
+
+App.propTypes = {
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.element,
+    React.PropTypes.arrayOf(React.PropTypes.element),
+  ]),
 }

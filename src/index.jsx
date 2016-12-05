@@ -20,9 +20,9 @@ render((
         <Route path={SiteRoutes.read} component={Read} />
         <Route path={SiteRoutes.write} component={Write} />
         <Route path={SiteRoutes.about} component={About} />
-        <Route path="*" component={NotFound} />
       </Route>
     </Route>
+    <Route path="*" component={NotFound} />
   </Router>
 ), document.getElementById('app')
 )

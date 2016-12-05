@@ -7,4 +7,11 @@ const ContentContainer = ({ children }) => (
   </div>
 )
 
+ContentContainer.propTypes = {
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.element,
+    React.PropTypes.arrayOf(React.PropTypes.element),
+  ]),
+}
+
 export default ContentContainer

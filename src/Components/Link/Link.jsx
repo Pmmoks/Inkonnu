@@ -29,6 +29,8 @@ Link.propTypes = {
     React.PropTypes.string,
     React.PropTypes.object,
     React.PropTypes.array,
+    React.PropTypes.element,
+    React.PropTypes.arrayOf(React.PropTypes.element),
   ]),
   classNames: React.PropTypes.string,
   href: React.PropTypes.string,

@@ -9,4 +9,15 @@ const Menu = ({ onBlur, showMenu, onClick, children, handleScroll }) => (
   </div>
 )
 
+Menu.propTypes = {
+  onBlur: React.PropTypes.func,
+  showMenu: React.PropTypes.bool,
+  onClick: React.PropTypes.func,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.element,
+    React.PropTypes.arrayOf(React.PropTypes.element),
+  ]),
+  handleScroll: React.PropTypes.bool,
+}
+
 export default Menu

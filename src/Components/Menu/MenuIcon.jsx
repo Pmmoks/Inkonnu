@@ -15,4 +15,10 @@ const MenuIcon = ({ showMenu, onClick, handleScroll }) => (
   </div>
 )
 
+MenuIcon.propTypes = {
+  showMenu: React.PropTypes.bool,
+  onClick: React.PropTypes.func,
+  handleScroll: React.PropTypes.bool,
+}
+
 export default MenuIcon

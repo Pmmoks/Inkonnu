@@ -7,4 +7,12 @@ const MenuOverlay = ({ showMenu, children }) => (
   </ul>
 )
 
+MenuOverlay.propTypes = {
+  showMenu: React.PropTypes.bool,
+  children: React.PropTypes.oneOfType([
+    React.PropTypes.element,
+    React.PropTypes.arrayOf(React.PropTypes.element),
+  ]),
+}
+
 export default MenuOverlay
